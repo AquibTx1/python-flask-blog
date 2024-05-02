@@ -40,7 +40,7 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
-                      docker tag my-app yourusername/my-app
-                      docker push lodu239/my-app
+                      docker tag my-app lodu239/flask-app
+                      docker push lodu239/flask-app
         delegateSelectors:
           - ec2-medium
