@@ -28,19 +28,17 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Run_1
+                  name: Building image
                   identifier: Run_1
                   spec:
                     shell: Sh
                     command: docker build -t my-app .
               - step:
-                  type: BuildAndPushDockerRegistry
-                  name: BuildAndPushDockerRegistry_1
-                  identifier: BuildAndPushDockerRegistry_1
+                  type: Run
+                  name: tagging docker file
+                  identifier: tagging_docker_file
                   spec:
-                    connectorRef: dockerhub
-                    repo: flask-app
-                    tags:
-                      - my-app
+                    shell: Sh
+                    command: docker tag my-app yourusername/my-app
         delegateSelectors:
           - ec2-medium
