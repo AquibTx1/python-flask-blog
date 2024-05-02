@@ -33,5 +33,14 @@ pipeline:
                   spec:
                     shell: Sh
                     command: docker build -t my-app .
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: dockerhub
+                    repo: flask-app
+                    tags:
+                      - my-app
         delegateSelectors:
           - ec2-medium
