@@ -35,10 +35,12 @@ pipeline:
                     command: docker build -t my-app .
               - step:
                   type: Run
-                  name: tagging docker file
+                  name: tagging and pushing docker image
                   identifier: tagging_docker_file
                   spec:
                     shell: Sh
-                    command: docker tag my-app yourusername/my-app
+                    command: |-
+                      docker tag my-app yourusername/my-app
+                      docker push lodu239/my-app
         delegateSelectors:
           - ec2-medium
