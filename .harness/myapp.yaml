@@ -41,6 +41,7 @@ pipeline:
                     shell: Sh
                     command: |-
                       docker tag my-app lodu239/flask-app
+                      docker login -u mrcrazy77492@gmail.com -p Aquib@77492
                       docker push lodu239/flask-app
         delegateSelectors:
           - ec2-medium
